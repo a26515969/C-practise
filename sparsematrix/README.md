@@ -5,16 +5,27 @@
 '''C++
 
 SparseMatrix A, B, C, D;
+
 ifstream fin;
+
 	if (argc == 1) fin.open("sparse.txt");  // open the default sparsematrix data 
+	
 	else fin.open(argv[1]);
+	
 	if (!fin) { // check whether fin is correct or not
+	
 		cout << "the input file [" << "sparse2.txt" << "] open error\n"; exit(1);
+		
 	}
+	
 	else { 
+	
 		fin >> A >> B>> C >> D;
+		
 	}
+	
 	fin.close();
+	
 	
 '''
 

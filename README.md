@@ -1,5 +1,6 @@
 # C-practise
 This is a repository of many c++ applets
+
 ##student record read/write
 在這份程式中，我們會根據txt檔中的學生資料進行操作，打印在終端機，根據最後的三筆成績資料進行加總平均並增加總成績一欄，最後由總成績欄進行排序
 

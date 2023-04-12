@@ -3,6 +3,7 @@
 **main**
 
 '''C++
+
 SparseMatrix A, B, C, D;
 ifstream fin;
 	if (argc == 1) fin.open("sparse.txt");  // open the default sparsematrix data 
@@ -14,6 +15,7 @@ ifstream fin;
 		fin >> A >> B>> C >> D;
 	}
 	fin.close();
+	
 '''
 
 我們使用四個稀疏矩陣進行運算，在檢查檔案後，我們依序載入A, B, C, D四個矩陣
@@ -35,11 +37,15 @@ public:
     };
 private: int row,col,value;
 };
+
 '''
+
+
 首先，先定義一個MatrixTerm的函數類別，分別儲存行、列、矩陣中非0元素以及定義了兩個 friend 函數：operator<< 和 operator>>，
 由於在稀疏矩陣中大部分的元素都是0，為了縮小儲存空間，我們只儲存矩陣中的非0元素。用來組成稀疏矩陣。
 
 '''C++
+
 class SparseMatrix
 {
    friend ostream & operator<<(ostream & os, SparseMatrix& m);
@@ -58,6 +64,7 @@ public:
     int Rows, Cols, Terms;  
     MatrixTerm smArray[20];
 };
+
 '''
 
 SparseMatrix 建構函式，可以初始化稀疏矩陣的列數、行數和非零元素的數量，預設值分別為0、0和20，
@@ -68,6 +75,7 @@ SparseMatrix 建構函式，可以初始化稀疏矩陣的列數、行數和非�
 
 
 '''C++
+
 SparseMatrix SparseMatrix::Transpose()
 {  
 	SparseMatrix bt(this->Cols, this->Rows, this->Terms);  
@@ -90,6 +98,7 @@ SparseMatrix SparseMatrix::Transpose()
 	
 	return bt; // or return *b 
 }
+
 '''
 
 生成一個新的矩陣，目的是先把bt矩陣所有的元素設置為0。接著遍歷原矩陣中的所有非0元素，將它的行列號進行互換，並且把該元素放入bt矩陣中對應的位置，因此可以得到轉置矩陣bt。

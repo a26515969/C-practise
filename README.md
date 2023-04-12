@@ -1,4 +1,4 @@
-# C++ practise
+# C\+\+ practise
 This is a repository of many c++ applets
 
 ##student record read/write

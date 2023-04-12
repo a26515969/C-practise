@@ -55,28 +55,28 @@
 首先，先定義一個MatrixTerm的函數類別，分別儲存行、列、矩陣中非0元素以及定義了兩個 friend 函數：operator<< 和 operator>>，
 由於在稀疏矩陣中大部分的元素都是0，為了縮小儲存空間，我們只儲存矩陣中的非0元素。用來組成稀疏矩陣。
 
-'''C++
 
-class SparseMatrix
-{
-   friend ostream & operator<<(ostream & os, SparseMatrix& m);
-   friend istream & operator>>(istream & is, SparseMatrix& m);
-public:
-   SparseMatrix(int ncol = 0, int nrow = 0, int nterm = 20) :
-        Rows(nrow), Cols(ncol), Terms(nterm) {
-        for (int i = 0; i < Terms; i++) smArray[i].set(0, 0, 0);
-    };
-   SparseMatrix Transpose();
-   SparseMatrix FastTranspose();
-   SparseMatrix & operator+(SparseMatrix& b);
-   SparseMatrix & operator*(SparseMatrix& b);  // polynomial multiplication
-  
-   private:
-    int Rows, Cols, Terms;  
-    MatrixTerm smArray[20];
-};
 
-'''
+	class SparseMatrix
+	{
+	   friend ostream & operator<<(ostream & os, SparseMatrix& m);
+	   friend istream & operator>>(istream & is, SparseMatrix& m);
+	public:
+	   SparseMatrix(int ncol = 0, int nrow = 0, int nterm = 20) :
+		Rows(nrow), Cols(ncol), Terms(nterm) {
+		for (int i = 0; i < Terms; i++) smArray[i].set(0, 0, 0);
+	    };
+	   SparseMatrix Transpose();
+	   SparseMatrix FastTranspose();
+	   SparseMatrix & operator+(SparseMatrix& b);
+	   SparseMatrix & operator*(SparseMatrix& b);  // polynomial multiplication
+
+	   private:
+	    int Rows, Cols, Terms;  
+	    MatrixTerm smArray[20];
+	};
+
+
 
 SparseMatrix 建構函式，可以初始化稀疏矩陣的列數、行數和非零元素的數量，預設值分別為0、0和20，
 並寫提供矩陣轉置、快速轉置、矩陣加法和矩陣乘法等操作。

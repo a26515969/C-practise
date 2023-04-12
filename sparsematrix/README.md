@@ -4,9 +4,9 @@
 
 '''C++
 
-SparseMatrix A, B, C, D;
+	SparseMatrix A, B, C, D;
 
-ifstream fin;
+	ifstream fin;
 
 	if (argc == 1) fin.open("sparse.txt");  // open the default sparsematrix data 
 	
@@ -35,19 +35,19 @@ ifstream fin;
 
 '''C++
 
-class MatrixTerm{
-    friend ostream & operator<<(ostream & os, SparseMatrix& m);
-    friend istream & operator>>(istream & is, SparseMatrix& m);
-    friend class SparseMatrix;
-public: 
-    void set(int r, int c, int v) {
+	class MatrixTerm{
+    	friend ostream & operator<<(ostream & os, SparseMatrix& m);
+    	friend istream & operator>>(istream & is, SparseMatrix& m);
+    	friend class SparseMatrix;
+	public: 
+    	void set(int r, int c, int v) {
         row = r, col = c, value = v;
-    };
-    void set(MatrixTerm& m) {
-        row = m.row; col = m.col; value = m.value;
-    };
-private: int row,col,value;
-};
+    	};
+    	void set(MatrixTerm& m) {
+        	row = m.row; col = m.col; value = m.value;
+    	};
+	private: int row,col,value;
+	};
 
 '''
 
